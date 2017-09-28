@@ -11,8 +11,11 @@ import makeSymbol from './services/query360';
 import GraphicsLayer from 'esri/layers/GraphicsLayer';
 import Graphic from 'esri/graphic';
 
-var directorioPrincipal = new String("http://gisred.chilquinta/chilquinta/assets/images/360/SSEE/");
-//var directorioPrincipal = new String("http://gisred.chilquinta.cl:5555/360/");
+//para interna:
+//var directorioPrincipal = new String("http://gisred.chilquinta/chilquinta/assets/images/360/SSEE/");
+
+//para externa:
+var directorioPrincipal = new String("http://gisred.chilquinta.cl:5555/360/");
 
 //var directorioPrincipal = new String("360/");
 
