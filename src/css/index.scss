@@ -1,145 +1,283 @@
+// this applies from 0px to 600px width
+
 html {
   background-color: #333333;
   clear: both;
-  position: relative;
+}
+
+.web-wrapper{
   width: 100%;
   height: 100%;
-
-}
-.web-wrapper, #app, .banner-container{
-  background-color: #333333;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-  align-content: center;
-  align-items: center;
-  width: 100%;
+  flex-direction: column-reverse;
 }
 
-.photo-container, .map-container{
-  //border-color: white;
+.web-container{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+}
+
+.photo-container{
+  display: flex;
   border-color: #c0ff00;
   border-style: dashed;
   border-width: 2px;
   margin: 1em;
+      flex-direction: column;
 }
 
-
-
-.map-container, .photo-container{
-
-  flex-direction: column;
-  min-width: 320px;
-  min-height: 350px;
-  //background-color: crimson;
-}
-
-.banner-container{
-  margin: 2em;
+.map-container{
+    //border-color: white;
+    border-color: #c0ff00;
+    border-style: dashed;
+    border-width: 2px;
+    margin: 1em;
 }
 
 .photo-title, .map-title{
-  justify-content: center;
-  align-content: center;
-  display: flex;
-  color: white;
-  font-size: 2em;
-  font-family: sans-serif;
-  margin: 0.5em;
-}
-
-.banner-img {
-  width: 40%;
-}
-
-.web-container{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
-
-.photo-container{
-  width: 96%;
-}
-
-#your-pano{
-  min-height: 500px;
-  height: 500px;
-}
-
-.banner-container p{
-  color: rgb(138, 183, 0);
-  display: flex;
-  font-family: monospace;
-  text-align: center;
-  font-size: smaller;
-}
-
-@media screen and (min-width: 800px) and (min-height: 600px) and (orientation: landscape){
-  .web-wrapper{
-    flex-direction: row-reverse;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    color: white;
+    font-size: 2em;
+    font-family: sans-serif;
+    margin: 0.5em;
+    width: 100%;
   }
 
-  .web-container{
-    width: 30%;
-    flex-direction: column-reverse;
-    margin: 0;
-    height: 800px;
-  }
-  .photo-container{
-    width: 70%;
-    height: 760px;
-    margin: 0;
-    margin-top: 1em;
-  }
-  .banner-container {
-    margin: 0;
-  }
-
-  .map-container{
-    min-height: auto;
+  .banner-img {
+    display: flex;
+    width: 150px;
+    height: 80px;
+    margin-right: 2em;
   }
 
   #your-pano{
-    min-height: 690px;
+    min-height: 500px;
+    height: 500px;
+    width: 100%
+  }
+
+  .banner-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .banner-img {
+    display: flex;
+    /* width: 30%; */
+    height: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 280px;
+    margin-top: 1em;
+  }
+
+  .banner-container p{
+   display: none;
+  }
+
+
+
+@media (min-width: 600px) and (orientation: landscape){
+  html {
+    background-color: #333333;
+    clear: both;
+    //position: relative;
+    //width: 100%;
+    //height: 100%;
+
+  }
+
+}
+
+/*
+@media screen and (min-width: 800px) and (orientation: landscape){
+  html {
+    background-color: green;
+    clear: both;
+    //position: relative;
+    //width: 100%;
+    //height: 100%;
+
   }
 }
 
-@media screen and (min-width: 1280px) and (min-height: 720px) and (orientation: landscape){
+@media screen and (min-width: 1280px) and (orientation: landscape) {
+  html {
+    background-color: blue;
+    clear: both;
+    //position: relative;
+    //width: 100%;
+    //height: 100%;
+
+  }
+}
+*/
+//screens from 1366px width to 1679px
+@media screen and (min-width: 1366px) and (orientation: landscape){
+
+  html {
+    background-color: #333333;
+    clear: both;
+  }
+
   .web-wrapper{
-    flex-direction: row-reverse;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .web-container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+
+  .photo-container{
+    width: 70%;
+  }
+
+  .photo-container, .map-container{
+    //border-color: white;
+    border-color: #c0ff00;
+    border-style: dashed;
+    border-width: 2px;
+    margin: 1em;
+    flex-direction: column;
+    min-width: 320px;
+    min-height: 350px;
+  }
+
+  .photo-title, .map-title{
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    color: white;
+    font-size: 2em;
+    font-family: sans-serif;
+    margin: 0.5em;
+  }
+
+  .banner-img {
+    display: flex;
+        width: 150px;
+        height: 80px;
+        margin-right: 2em;
+  }
+
+  #your-pano{
+    min-height: 500px;
+    height: 500px;
+  }
+
+  .banner-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .banner-container p{
+    color: rgb(138, 183, 0);
+    display: flex;
+    font-family: monospace;
+    text-align: center;
+    font-size: smaller;
+    margin-top: 3em;
+  }
+
+  #app{
+    width: 100%;
+    height: 95vh;
+    clear: both;
+  }
+}
+
+//screens from 1366px width and more
+@media screen and (min-width: 1680px) and (orientation: landscape){
+  html {
+    background-color: #333333;
+    clear: both;
+    //position: relative;
+    //width: 100%;
+    //height: 100%;
+
+  }
+
+  .web-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .web-container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+
+  .photo-container{
+    width: 70%;
+  }
+  .photo-container, .map-container{
+    border-color: #c0ff00;
+    border-style: dashed;
+    border-width: 2px;
+    margin: 1em;
+    flex-direction: column;
+    min-width: 320px;
     height: 100%;
   }
 
-  .web-container{
-  height: 100%;
+  .photo-title, .map-title{
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    color: white;
+    font-size: 2em;
+    font-family: sans-serif;
+    margin: 0.5em;
   }
 
-  .photo-container{
-      height: 100%;
-  }
-
-  .banner-container {
-    margin: 0;
-  }
-
-  .map-container{
-    min-height: auto;
+  .banner-img {
+    display: flex;
+    width: 150px;
+    height: 80px;
+    margin-right: 2em;
   }
 
   #your-pano{
-    min-height: 690px;
-    height: 90%;
+    height: 100%;
   }
+
+  .banner-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .banner-container p{
+    color: rgb(138, 183, 0);
+    //display: flex;
+    font-family: monospace;
+    text-align: center;
+    font-size: smaller;
+  }
+
   #app{
-    height: 97vh;
+    width: 100%;
+      height: 95vh;
+      clear: both;
   }
-}
 
-@media screen and (min-width: 1366) and (min-height: 768px) and (orientation: landscape){
-  #your-pano{
-    min-height: 1110px;
+  #map{
+    height: 90.7%;
   }
 }

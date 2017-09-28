@@ -24,7 +24,7 @@ function getSSEELocation(ssee, token){
         resolve([]);
       }
       var myExtend= new esri.graphicsExtent(featureSet.features);
-
+      console.log("geometria",featureSet);
       let x = {
         f: featureSet,
         extent: myExtend

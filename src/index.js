@@ -14,6 +14,8 @@ import Graphic from 'esri/graphic';
 var directorioPrincipal = new String("http://gisred.chilquinta/chilquinta/assets/images/360/SSEE/");
 //var directorioPrincipal = new String("http://gisred.chilquinta.cl:5555/360/");
 
+//var directorioPrincipal = new String("360/");
+
 var slash = "/";
 var panoNom = new String("");
 var extension = new String(".jpg");
@@ -25,13 +27,15 @@ class GR360 extends React.Component {
         this.state = {
           params: {},
           ubicacionFoto: '',
-          initialExtent: ''
+          initialExtent: '',
+          zoom: 0
         };
     }
     componentWillMount(){
 
-      this.setState({params: getURLParameters()})
+      this.setState({params: getURLParameters(), zoom: getURLParameters().zoom})
       console.log("my params", getURLParameters());
+
     }
 
     componentDidMount(){
@@ -50,11 +54,15 @@ class GR360 extends React.Component {
         map.addLayer(graphicLayer);
         map.setExtent(result.extent);
         this.setState({initialExtent: result.extent, initialZoom: map.getZoom()});
-
+        console.log(map.getZoom(), this.state.zoom);
+        var z = parseFloat(this.state.zoom);
+        console.log(z);
+        map.setZoom(z);
 
       },err=>{
         console.log("err",err)
       });
+
 
       map.on('extent-change',event=>{
           if(!this.state.initialExtent){
@@ -116,23 +124,22 @@ class GR360 extends React.Component {
     render() {
         return (
             <div className="web-wrapper">
-              <div className="web-container">
-                <div className="banner-container">
-                  <img className="banner-img" src={env.CSSDIRECTORY+"gisred360_icon.png"}></img>
-                  <p>GISRED 360° - 2017 <br /> © Pérdidas y GIS <br /> Design by @ehernanr </p>
+                <div className="photo-container">
+                  <div className="photo-title"><h8>FOTO <i className="fa fa-photo" aria-hidden="true"></i></h8></div>
+                  <div className="photo-div" id="your-pano"></div>
                 </div>
 
+              <div className="web-container">
                 <div className="map-container">
                   <div className="map-title"><h8>MAPA <i className="fa fa-map" aria-hidden="true"></i></h8></div>
                   <div id="map"></div>
                 </div>
+                <div className="banner-container">
+                  <img className="banner-img" src={env.CSSDIRECTORY+"gisred360_icon_pin.png"}></img>
+                  <p>GISRED 360° - 2017 <br /> © Pérdidas y GIS <br /> Design by @ehernanr </p>
+                </div>
 
               </div>
-              <div className="photo-container">
-                <div className="photo-title"><h8>FOTO <i className="fa fa-photo" aria-hidden="true"></i></h8></div>
-                <div className="photo-div" id="your-pano"></div>
-              </div>
-
             </div>
         );
     }
